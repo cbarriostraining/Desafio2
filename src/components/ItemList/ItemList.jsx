@@ -1,11 +1,10 @@
 import React from 'react';
 import ItemCard from '../ItemCard/ItemCard';
 
-const ItemListContainer = ({gretting,productCatalog}) => {
+const ItemList = ({productCatalog}) => {
   return (
     <>
-    <h3>{gretting}</h3>  
-        {productCatalog.map(product=>
+     {productCatalog.map(product=>
         <ItemCard 
         key={product.id} 
         url={product.image} 
@@ -17,4 +16,4 @@ const ItemListContainer = ({gretting,productCatalog}) => {
   )
 }
 
-export default ItemListContainer
+export default ItemList
