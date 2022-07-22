@@ -3,7 +3,7 @@ const imageformat= {
     height: 300,
     width: 250
   }
-const ItemCard = ({url,name,price}) => {
+const Item = ({url,name,price}) => {
   return (
 
 
@@ -28,4 +28,4 @@ const ItemCard = ({url,name,price}) => {
   )
 }
 
-export default ItemCard
+export default Item

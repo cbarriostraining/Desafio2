@@ -1,11 +1,11 @@
 import React from 'react';
-import ItemCard from '../ItemCard/ItemCard';
+import Item from '../Item/Item';
 
-const ItemList = ({productCatalog}) => {
+const ItemList = ({products}) => {
   return (
     <>
-     {productCatalog.map(product=>
-        <ItemCard 
+     {products.map(product=>
+        <Item 
         key={product.id} 
         url={product.image} 
         name={product.name} 

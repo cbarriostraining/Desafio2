@@ -1,10 +1,23 @@
-import React from 'react'
+import { useState, useEffect } from 'react';
+import React from 'react';
 const style={
     height: 100,
     width: 280,
 
 }
-const ItemCount = ({count, addCartHandler,removeProductHandler,addProductHandler,productQuantityChangeHandler }) => {
+const ItemCount = ({initialCount,stock , addCartHandler}) => {
+  const [count, setCount] = useState(1);
+
+  const removeProductHandler =()=>{
+    if(count>1)setCount(count-1);
+   };
+   const addProductHandler =()=>{
+    if(count<stock)setCount(count+1);
+   };
+
+   const productQuantityChangeHandler=()=>{
+    console.log("Se cambio la cantidad directamente");
+  };
 
   return (<>
   <div style={style}>
