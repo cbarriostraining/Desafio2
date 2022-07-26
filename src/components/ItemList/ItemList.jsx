@@ -10,6 +10,7 @@ const ItemList = ({products}) => {
         url={product.image} 
         name={product.name} 
         price={product.price}
+        product={product}
         />)}
 
     </>

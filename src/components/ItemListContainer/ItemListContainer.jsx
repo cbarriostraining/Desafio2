@@ -1,28 +1,14 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import ItemList from '../ItemList/ItemList';
-
 import Loader from '../Loader/Loader';
-const catalogproducts=[
-  {id:'1', category:'Perfumes',name:'Guess Spray for Women', price:443, image:'https://m.media-amazon.com/images/I/51GvU7DqJfL._AC_SX522_.jpg'},
-  {id:'2', category:'Perfumes',name:'Paco Rabanne Ultraviolet Spray for Women', price:1068, image:'https://m.media-amazon.com/images/I/41-fTcVhIwL._AC_.jpg'},
-  {id:'3', category:'Perfumes',name:'Ariana Grande Ari Spray', price:1029, image:'https://m.media-amazon.com/images/I/81Qu0Kq05NL._AC_SX522_.jpg'},
-  {id:'4', category:'Perfumes',name:'Cacharel Amor Amor Spray', price:1061, image:'https://images-na.ssl-images-amazon.com/images/I/61agGhEJMbL.__AC_SX300_SY300_QL70_ML2_.jpg'},
-  {id:'5', category:'Perfumes',name:'Perry Ellis Love Spray', price:706, image:'https://m.media-amazon.com/images/I/81g3iOd3nsL._AC_SX522_.jpg'},
-  {id:'6', category:'Perfumes',name:'Hugo Boss El aroma ', price:1393, image:'https://m.media-amazon.com/images/I/71ChKZ+jD5L._AC_SX522_.jpg'},
-  {id:'7', category:'Perfumes',name:'Perfume 212 de Carolina Herrera ', price:1399, image:'https://m.media-amazon.com/images/I/51JSHNRabpS._AC_SX522_.jpg'},
-  {id:'8', category:'Perfumes',name:'ésika Vibranza Perfume de Mujer aroma oriental dulce', price:284, image:'https://m.media-amazon.com/images/I/61BgYr3efpS._AC_SX679_.jpg'},
-  {id:'9', category:'Perfumes',name:'Emporio Armani ', price:1789, image:'https://m.media-amazon.com/images/I/71SyAuqbLvL._AC_SY879_.jpg'},
-];
+import { CONSTANTS } from "../../common/constants";
+const {products:catalogproducts,PRODUCTS} = CONSTANTS;
 
-
-const ItemListContainer = ({gretting,productCatalog}) => {
-
+const ItemListContainer = ({gretting}) => {
 
   const [products,SetProducts]=useState([]);
   const [loading,SetLoading] = useState(true);
-
-
 
   useEffect(() => {
     getProducts()
@@ -36,20 +22,17 @@ const ItemListContainer = ({gretting,productCatalog}) => {
    
    }, []);
 
-
    const getProducts = () =>{
     return new Promise((resolve,reject) => {
       setTimeout(()=>{
-          resolve(catalogproducts);
+          resolve(PRODUCTS);
         },3000);
       });} ;
 
 
-
-
   return (
     <>
-    <h3>{gretting}</h3>  
+    <h3>{gretting}</h3>
         {loading? <Loader/>:<ItemList products= {products}/>}
 
     </>
@@ -57,22 +40,3 @@ const ItemListContainer = ({gretting,productCatalog}) => {
 }
 
 export default ItemListContainer
-
-
-
-/* 
-  return (
-    <>
-    <h3>{gretting}</h3>  
-        {loading? <Loader/>:products.map(product=>
-        <Item 
-        key={product.id} 
-        url={product.image} 
-        name={product.name} 
-        price={product.price}
-        />)}
-
-    </>
-  )
-
-*/

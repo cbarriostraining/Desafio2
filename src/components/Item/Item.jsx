@@ -1,12 +1,12 @@
 import React from 'react';
+
 const imageformat= {
     height: 300,
     width: 250
   }
-const Item = ({url,name,price}) => {
-  return (
+const Item = ({url,name}) => {
 
-
+return (
 <div className="col-md-4 p-1">
     <div className="col s6 m7">
       <div className="card">
@@ -18,13 +18,11 @@ const Item = ({url,name,price}) => {
           <p>{name}</p>
         </div>
         <div className="card-action">
-          <a href="#"><p>Precio: $ {price}</p></a>
+       <p>Detalle del producto</p>
         </div>
       </div>
     </div>
   </div>
-
-
   )
 }
 
