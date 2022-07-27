@@ -3,19 +3,19 @@ FIRST_ELEMENT:0,
 SECOND_ELEMENT:1,
 THIRD_ELEMENT:2,
 products:[
-        {id:'1', category:'Perfumes',name:'Guess Spray for Women', price:443, image:'https://m.media-amazon.com/images/I/51GvU7DqJfL._AC_SX522_.jpg'},
-        {id:'2', category:'Perfumes',name:'Paco Rabanne Ultraviolet Spray for Women', price:1068, image:'https://m.media-amazon.com/images/I/41-fTcVhIwL._AC_.jpg'},
-        {id:'3', category:'Perfumes',name:'Ariana Grande Ari Spray', price:1029, image:'https://m.media-amazon.com/images/I/81Qu0Kq05NL._AC_SX522_.jpg'},
-        {id:'4', category:'Perfumes',name:'Cacharel Amor Amor Spray', price:1061, image:'https://images-na.ssl-images-amazon.com/images/I/61agGhEJMbL.__AC_SX300_SY300_QL70_ML2_.jpg'},
-        {id:'5', category:'Perfumes',name:'Perry Ellis Love Spray', price:706, image:'https://m.media-amazon.com/images/I/81g3iOd3nsL._AC_SX522_.jpg'},
-        {id:'6', category:'Perfumes',name:'Hugo Boss El aroma ', price:1393, image:'https://m.media-amazon.com/images/I/71ChKZ+jD5L._AC_SX522_.jpg'},
-        {id:'7', category:'Perfumes',name:'Perfume 212 de Carolina Herrera ', price:1399, image:'https://m.media-amazon.com/images/I/51JSHNRabpS._AC_SX522_.jpg'},
-        {id:'8', category:'Perfumes',name:'ésika Vibranza Perfume de Mujer aroma oriental dulce', price:284, image:'https://m.media-amazon.com/images/I/61BgYr3efpS._AC_SX679_.jpg'},
-        {id:'9', category:'Perfumes',name:'Emporio Armani ', price:1789, image:'https://m.media-amazon.com/images/I/71SyAuqbLvL._AC_SY879_.jpg'},
+        {id:'1', category:'perfumes',name:'Guess Spray for Women', price:443, image:'https://m.media-amazon.com/images/I/51GvU7DqJfL._AC_SX522_.jpg'},
+        {id:'2', category:'perfumes',name:'Paco Rabanne Ultraviolet Spray for Women', price:1068, image:'https://m.media-amazon.com/images/I/41-fTcVhIwL._AC_.jpg'},
+        {id:'3', category:'perfumes',name:'Ariana Grande Ari Spray', price:1029, image:'https://m.media-amazon.com/images/I/81Qu0Kq05NL._AC_SX522_.jpg'},
+        {id:'4', category:'perfumes',name:'Cacharel Amor Amor Spray', price:1061, image:'https://images-na.ssl-images-amazon.com/images/I/61agGhEJMbL.__AC_SX300_SY300_QL70_ML2_.jpg'},
+        {id:'5', category:'perfumes',name:'Perry Ellis Love Spray', price:706, image:'https://m.media-amazon.com/images/I/81g3iOd3nsL._AC_SX522_.jpg'},
+        {id:'6', category:'perfumes',name:'Hugo Boss El aroma ', price:1393, image:'https://m.media-amazon.com/images/I/71ChKZ+jD5L._AC_SX522_.jpg'},
+        {id:'7', category:'perfumes',name:'Perfume 212 de Carolina Herrera ', price:1399, image:'https://m.media-amazon.com/images/I/51JSHNRabpS._AC_SX522_.jpg'},
+        {id:'8', category:'perfumes',name:'ésika Vibranza Perfume de Mujer aroma oriental dulce', price:284, image:'https://m.media-amazon.com/images/I/61BgYr3efpS._AC_SX679_.jpg'},
+        {id:'9', category:'perfumes',name:'Emporio Armani ', price:1789, image:'https://m.media-amazon.com/images/I/71SyAuqbLvL._AC_SY879_.jpg'},
       ],
 PRODUCTS:[
     {id:'1', 
-    category:'Perfumes',
+    category:'perfumes',
     name:'Guess Spray for Women', 
     price:443, 
     image:['https://m.media-amazon.com/images/I/51GvU7DqJfL._AC_SX522_.jpg',
@@ -29,7 +29,7 @@ PRODUCTS:[
            'El embalaje de este producto puede variar del que se muestra en la imagen de arriba']  
     },
     {id:'2', 
-    category:'Perfumes',
+    category:'perfumes',
     name:'Paco Rabanne Ultraviolet Spray for Women',
     price:1068, 
     image:['https://m.media-amazon.com/images/I/41-fTcVhIwL._AC_.jpg',
@@ -43,7 +43,7 @@ PRODUCTS:[
            'We do not sell any knockoffs or immitations.']  
     },
     {id:'3', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'Ariana Grande Ari Spray', 
      price:1029, 
      image:['https://m.media-amazon.com/images/I/81Qu0Kq05NL._AC_SX522_.jpg',
@@ -57,7 +57,7 @@ PRODUCTS:[
             '3.4 oz Eau de Parfum Spray.']        
     },
     {id:'4', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'Cacharel Amor Amor Spray', 
      price:1061, 
      image:['https://images-na.ssl-images-amazon.com/images/I/61agGhEJMbL.__AC_SX300_SY300_QL70_ML2_.jpg',
@@ -72,7 +72,7 @@ PRODUCTS:[
            ]       
     },
     {id:'5', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'Perry Ellis Love Spray', 
      price:706, 
      image:['https://m.media-amazon.com/images/I/81g3iOd3nsL._AC_SX522_.jpg',
@@ -86,7 +86,7 @@ PRODUCTS:[
             'For Women.']        
     },
     {id:'6', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'Hugo Boss El aroma', 
      price:1393, 
      image:['https://m.media-amazon.com/images/I/71ChKZ+jD5L._AC_SX522_.jpg',
@@ -100,7 +100,7 @@ PRODUCTS:[
             'Sin efectos secundarios..']        
     },
     {id:'7', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'Perfume 212 de Carolina Herrera', 
      price:1399, 
      image:['https://m.media-amazon.com/images/I/51JSHNRabpS._AC_SX522_.jpg',
@@ -114,7 +114,7 @@ PRODUCTS:[
             'Spray 100 ml.']        
     },
     {id:'8', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'ésika Vibranza Perfume de Mujer aroma oriental dulce', 
      price:284, 
      image:['https://m.media-amazon.com/images/I/61BgYr3efpS._AC_SX679_.jpg',
@@ -128,7 +128,7 @@ PRODUCTS:[
             'Ingredientes: Orquídea de vainilla y flor de café.']        
     },
     {id:'9', 
-     category:'Perfumes',
+     category:'perfumes',
      name:'Emporio Armani ', 
      price:1789, 
      image:['https://m.media-amazon.com/images/I/71SyAuqbLvL._AC_SY879_.jpg',
@@ -142,6 +142,87 @@ PRODUCTS:[
             'Eau De Parfum.'
             ]        
     },
+    {id:'10', 
+     category:'estuches',
+     name:'Kipling Estuche Freedom', 
+     price:503, 
+     image:['https://m.media-amazon.com/images/I/81-p9iWlZyL._AC_UL320_.jpg',
+            'https://m.media-amazon.com/images/I/81Pf+3pyuXL._AC_SX679_.jpg'
+           ],
+     title:'Kipling Estuche Freedom, Una talla, Estuche para lápices Freedom',
+     brand:'Kipling',
+     form:'Nailon',
+     about:['Revestimiento de Polister.',
+            'Cierre de Cremallera.', 
+            'Freedom es nuestra pequeña bolsa con cremallera perfecta ideal para guardar bolígrafos, lápices, gomas de borrar, brochas de cosméticos, tus pequeños artículos esenciales diarios y mucho más.'
+            ]        
+    },
+    {id:'11', 
+     category:'estuches',
+     name:'MAGEFY Bolsa de maquillaje', 
+     price:220, 
+     image:['https://m.media-amazon.com/images/I/81ixISr+BbL._AC_SY450_.jpg',
+            'https://m.media-amazon.com/images/I/71dTpyBzTFL._AC_SY450_.jpg'
+           ],
+     title:'MAGEFY Bolsa de maquillaje 3 Estilos Cosmetiquera de Viaje Portátil Para Mujeres Cosmetiquera para Maquillaje de Cremallera con Patrones de Flores Estuche de maquillaje para Niñas Bolsas de Mujer (3 Paquetes)',
+     brand:'MAGEFY',
+     form:'Poliester',
+     about:['MAGEFY bolsa para maquillaje son duraderas y ligeras.',
+            'Hermosos patrones diferentes.', 
+            'Están hechas de cremalleras confiables y materiales duraderos.'
+            ]        
+    },
+    {id:'12', 
+     category:'estuches',
+     name:'Cosmetiquera para Maquillaje', 
+     price:339, 
+     image:['https://m.media-amazon.com/images/I/61hwkOLhm7L._AC_SY450_.jpg',
+            'https://m.media-amazon.com/images/I/51V7V6dS7VL._AC_SY450_.jpg'
+           ],
+     title:'Cosmetiquera para Maquillaje 3Pcs Portátil Bolsa de Maquillaje Impermeable PU Multifuncional para Mujer Cosméticos Organizador Estuche Maquillaje (Mármol blanco)',
+     brand:'MAANGE',
+     form:'Poliester',
+     about:['3 estilos y tamaños diferentes.',
+            'Bolsa de cosméticos de material premium.', 
+            'Bolsa de maquillaje multifuncional.'
+            ]        
+    },
+    {id:'13', 
+     category:'estuches',
+     name:'Coach Estuche para tarjetas', 
+     price:1649, 
+     image:['https://m.media-amazon.com/images/I/61TKTE1kNJL._AC_SY450_.jpg',
+            'https://m.media-amazon.com/images/I/514CZh0ldGL._AC_SY450_.jpg'
+           ],
+     title:'Coach Estuche para tarjetas de fijación para mujer, Negro, OS, Estuche para tarjetas',
+     brand:'COACH',
+     form:'Piel',
+     about:['Coach Estuche para tarjetas de fijación para mujer.',
+            'Negro.', 
+            'Estuche para tarjetas.'
+            ]        
+    },
+    {id:'14', 
+     category:'estuches',
+     name:'JSBelle Bolsa de maquillaje de viaje', 
+     price:169, 
+     image:['https://m.media-amazon.com/images/I/61rkhoxKRXL._AC_SY450_.jpg',
+            'https://m.media-amazon.com/images/I/718CM3UZ6HL._AC_SY450_.jpg'
+           ],
+     title:'JSBelle Bolsa de maquillaje de viaje, Pequeño organizador de estuches cosméticos para mujer (Negro)',
+     brand:'JSBelle',
+     form:'Nailon',
+     about:['el material exterior es de tela de nylon negro de buena calidad.',
+            'El compartimento principal puede almacenar cosméticos.', 
+            'Multifuncional.'
+            ]        
+    }
+
+
+
+
+
+
   ]
   
   };

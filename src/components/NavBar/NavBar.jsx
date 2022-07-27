@@ -1,7 +1,7 @@
 import React from 'react'
 import img from '../../public/images/perfume6.png'
 import CartWidget from './CartWidget/CartWidget';
-
+import {Link} from  'react-router-dom';
 
 const NavBar = () => {
 
@@ -13,13 +13,13 @@ const NavBar = () => {
   <div className="App">
     <nav>
       <div className="container">
- <a href="#" className="brand-logo"><img src={img} style={imageformat} /></a>
-         <ul id="nav-mobile" className="right hide-on-med-and-down">
-            <li><a href="#">Perfumes</a></li>
-            <li><a href="#">Estuches</a></li>
-            <li><a href="#">Belleza</a></li>
-            <li><a href="#">Especiales de Temporada</a></li>
-            <li><a href="#">Novedades</a></li>
+        <Link to='/'> <img src={img} style={imageformat} /></Link>
+          <ul id="nav-mobile" className="right hide-on-med-and-down">
+            <li><Link to='/category/perfumes'>Perfumes</Link></li>
+            <li><Link to='/category/estuches'>Estuches</Link></li>
+            <li><Link to='/belleza'>Belleza</Link></li>
+            <li><Link to='/temporada'>Especiales de Temporada</Link></li>
+            <li><Link to='/novedades'>Novedades</Link></li>
             <CartWidget/>
            
           

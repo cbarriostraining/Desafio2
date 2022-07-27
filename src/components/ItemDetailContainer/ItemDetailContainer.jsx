@@ -1,22 +1,30 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import {useParams} from  'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
+import ItemCount from '../ItemCount/ItemCount';
 import Loader from '../Loader/Loader';
 import { CONSTANTS } from "../../common/constants";
 const {PRODUCTS} = CONSTANTS;
 
-const ItemDetailContainer = ({id}) => {
+const ItemDetailContainer = () => {
+  const [stock,setStock]=useState(10);
+  const [initialCount,setInitialCount]=useState(1);
+  const addCartHandler=()=>{
+    console.log("Agregar al carrito");
+  };
+
 
   const [item,SetItem]=useState({});
   const [loading,SetLoading] = useState(true);
- 
+  const  {id:productId}=useParams();
     useEffect(() => {
-      getItem(id)
+      getItem(productId)
        .then(itemData=>{
         SetItem(itemData);})
        .catch(error=>console.log(error))
        .finally(()=>{  SetLoading(false);});
-     }, []);
+     }, [productId]);
   
   
      const getItem = (id) =>{
@@ -28,12 +36,44 @@ const ItemDetailContainer = ({id}) => {
             }
           }
             );
-          },2000);
+          },1000);
         });} ;
   
  return (
     <>
-    {loading? <Loader/>:<ItemDetail productDetail={item}/>}
+    {loading? <Loader/>:
+    <>
+     
+       
+        
+
+        <div className="container">
+                 <div className="row">
+                     <div className="col s14 ">
+                      <ItemDetail productDetail={item}/>
+                     </div>
+                  </div>
+                 <div className="row">
+                      <div className="col s4 ">
+                      </div>
+                      <div className="col s4 ">
+                      
+                      </div>
+                      <div className="col s4">
+                      <ItemCount initialCount={initialCount} stock={stock}  addCartHandler={addCartHandler} />
+                      </div>
+                 </div>
+         </div>   
+
+
+
+
+
+
+    </>
+    
+    
+    }
     </>
 )
 }
