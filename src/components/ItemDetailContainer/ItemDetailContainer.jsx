@@ -2,18 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import {useParams} from  'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-import ItemCount from '../ItemCount/ItemCount';
+
 import Loader from '../Loader/Loader';
 import { CONSTANTS } from "../../common/constants";
 const {PRODUCTS} = CONSTANTS;
 
 const ItemDetailContainer = () => {
-  const [stock,setStock]=useState(10);
-  const [initialCount,setInitialCount]=useState(1);
-  const addCartHandler=()=>{
-    console.log("Agregar al carrito");
-  };
-
 
   const [item,SetItem]=useState({});
   const [loading,SetLoading] = useState(true);
@@ -43,10 +37,6 @@ const ItemDetailContainer = () => {
     <>
     {loading? <Loader/>:
     <>
-     
-       
-        
-
         <div className="container">
                  <div className="row">
                      <div className="col s14 ">
@@ -60,15 +50,10 @@ const ItemDetailContainer = () => {
                       
                       </div>
                       <div className="col s4">
-                      <ItemCount initialCount={initialCount} stock={stock}  addCartHandler={addCartHandler} />
+              
                       </div>
                  </div>
          </div>   
-
-
-
-
-
 
     </>
     

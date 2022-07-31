@@ -5,18 +5,19 @@ const style={
     width: 280,
 
 }
-const ItemCount = ({initialCount,stock , addCartHandler}) => {
-  const [count, setCount] = useState(1);
+const ItemCount = ({initialCount=1,stock=10 , addCartHandler}) => {
+  const [count, setCount] = useState(initialCount);
 
-  const removeProductHandler =()=>{
-    if(count>1)setCount(count-1);
-   };
-   const addProductHandler =()=>{
+  const addProductHandler =()=>{
     if(count<stock)setCount(count+1);
    };
 
-   const productQuantityChangeHandler=()=>{
-    console.log("Se cambio la cantidad directamente");
+  const removeProductHandler =()=>{
+    if(count>initialCount)setCount(count-1);
+   };
+
+   const addCart=()=>{
+    addCartHandler(count);
   };
 
   return (<>
@@ -35,11 +36,10 @@ const ItemCount = ({initialCount,stock , addCartHandler}) => {
                 style={{"textAlign": "center"} } 
                 placeholder={count} 
                 value={count} 
-                onChange={productQuantityChangeHandler}
                 /></a></li>
             <li className="active"  onClick={addProductHandler}><a href="#!">+</a></li>
           </ul>
-           <a className="waves-effect waves-light pink btn" onClick={addCartHandler}><i className="material-icons right">shopping_cart</i>Agregar al carrito</a>
+           <a className="waves-effect waves-light pink btn" onClick={addCart}><i className="material-icons right">shopping_cart</i>Agregar al carrito</a>
         </div>
       </div>
     </div>

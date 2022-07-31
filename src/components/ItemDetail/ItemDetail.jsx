@@ -1,21 +1,24 @@
 import React from 'react';
-import M from "materialize-css";
 import { useEffect ,useState} from 'react';
-
-import Modal from 'react-modal';
+import ItemCount from '../ItemCount/ItemCount';
+import {Link} from  'react-router-dom';
 import { CONSTANTS } from "../../common/constants";
-const {FIRST_ELEMENT, SECOND_ELEMENT,THIRD_ELEMENT} = CONSTANTS;
+const {FIRST_ELEMENT, SECOND_ELEMENT,THIRD_ELEMENT,imageformat} = CONSTANTS;
 
 
-const imageformat= {
-    height: 300,
-    width: 250
-  }
-const ItemDetail = ({productDetail }) => {
-  return(
-      <>
-      {productDetail.title ?
-               <div className="container">
+
+const FinishMyPurchase=()=>{
+return(<>
+<Link to={`/cart`} className="waves-effect waves-light btn pink">
+    Terminar mi compra
+    </Link>
+</>)
+}
+
+const ProductDetail =({productDetail})=>{
+
+return(<>
+<div className="container">
                 <br/> <br/> <br/>
                   <div className="row">
                   
@@ -50,8 +53,46 @@ const ItemDetail = ({productDetail }) => {
                       </div>
                   
                   </div>
-              </div>   
-          :""}
+              </div>  
+</>)
+
+
+}
+
+const NotFound =()=>{
+return(
+  <></>
+)
+
+}
+
+const ItemDetail = ({productDetail }) => {
+
+  const [stock,setStock]=useState(10);
+  const [initialCount,setInitialCount]=useState(1);
+  const [quantity,setQuantity]=useState(0);
+
+  const addCartHandler=(productQuantity)=>{
+    console.log(`La cantidad es : ${productQuantity}`);
+  
+    setQuantity(1);
+
+  };
+
+
+
+
+  return(
+      <>
+      {productDetail.title ? 
+      <>
+        <ProductDetail productDetail={productDetail}/>
+        {quantity ?<FinishMyPurchase/>: <ItemCount initialCount={initialCount} stock={stock}  addCartHandler={addCartHandler} />   }
+      </>
+       :
+       <NotFound/> }
+      
+      
       </>
   )
 }

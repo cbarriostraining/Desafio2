@@ -2,6 +2,10 @@ const interfaceData = {
 FIRST_ELEMENT:0,
 SECOND_ELEMENT:1,
 THIRD_ELEMENT:2,
+imageformat: {
+       height: 300,
+       width: 250
+     },
 products:[
         {id:'1', category:'perfumes',name:'Guess Spray for Women', price:443, image:'https://m.media-amazon.com/images/I/51GvU7DqJfL._AC_SX522_.jpg'},
         {id:'2', category:'perfumes',name:'Paco Rabanne Ultraviolet Spray for Women', price:1068, image:'https://m.media-amazon.com/images/I/41-fTcVhIwL._AC_.jpg'},
