@@ -3,6 +3,7 @@ import { useEffect ,useState} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import {Link} from  'react-router-dom';
 import { CONSTANTS } from "../../common/constants";
+import { useCartContext } from '../../context/CartContext';
 const {FIRST_ELEMENT, SECOND_ELEMENT,THIRD_ELEMENT,imageformat} = CONSTANTS;
 
 
@@ -68,18 +69,23 @@ return(
 
 const ItemDetail = ({productDetail }) => {
 
+  const {addToCart,cartList}=useCartContext();
+
   const [stock,setStock]=useState(10);
   const [initialCount,setInitialCount]=useState(1);
   const [quantity,setQuantity]=useState(0);
 
   const addCartHandler=(productQuantity)=>{
     console.log(`La cantidad es : ${productQuantity}`);
-  
-    setQuantity(1);
+    setQuantity(productQuantity);
+   //  addToCart({product:productDetail,quantity:productQuantity})
+
+   addToCart({...productDetail,quantity:productQuantity})
+    
 
   };
 
-
+// console.log(cartList);
 
 
   return(

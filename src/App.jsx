@@ -9,7 +9,7 @@ import Beauty from './components/Beauty/Beauty';
 import News from './components/News/News';
 import SeasonalSpecials from './components/SeasonalSpecials/SeasonalSpecials';
 import Cases from './components/Cases/Cases';
-
+import CartContextProvider from './context/CartContext';
 
 function App() {
 
@@ -21,19 +21,21 @@ function App() {
     <>
     
         <BrowserRouter>
-            <NavBar/>
-            <Routes>
-                <Route  path='/' element={<ItemListContainer  gretting={"Hola Bienvenido a Perfumes Rosalía"} />}/>
-                <Route  path='/category/:categoryId' element={<ItemListContainer/>}/>
-                <Route  path='/item/:id' element={<ItemDetailContainer/>}/>
-                <Route  path='/cart' element={<Cart/>}/>
-                <Route  path='/belleza' element={<Beauty/>}/>
-                <Route  path='/novedades' element={<News/>}/>
-                <Route  path='/temporada' element={<SeasonalSpecials/>}/>
-                <Route  path='*' element={<Navigate to='/'/>}/>
-            </Routes>
+          <CartContextProvider>
+                <NavBar/>
+                <Routes>
+                    <Route  path='/' element={<ItemListContainer  gretting={"Hola Bienvenido a Perfumes Rosalía"} />}/>
+                    <Route  path='/category/:categoryId' element={<ItemListContainer/>}/>
+                    <Route  path='/item/:id' element={<ItemDetailContainer/>}/>
+                    <Route  path='/cart' element={<Cart/>}/>
+                    <Route  path='/belleza' element={<Beauty/>}/>
+                    <Route  path='/novedades' element={<News/>}/>
+                    <Route  path='/temporada' element={<SeasonalSpecials/>}/>
+                    <Route  path='*' element={<Navigate to='/'/>}/>
+                </Routes>
+          </CartContextProvider>
         </BrowserRouter>
-
+ 
 
     </>
   )

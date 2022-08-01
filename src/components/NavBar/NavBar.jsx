@@ -3,6 +3,7 @@ import img from '../../public/images/perfume6.png'
 import CartWidget from './CartWidget/CartWidget';
 import {Link} from  'react-router-dom';
 
+
 const NavBar = () => {
 
   const imageformat= {

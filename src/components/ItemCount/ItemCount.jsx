@@ -1,11 +1,13 @@
-import { useState} from 'react';
-import React from 'react';
+import React, { useState} from 'react';
+
 const style={
     height: 100,
     width: 280,
 
 }
 const ItemCount = ({initialCount=1,stock=10 , addCartHandler}) => {
+
+ 
   const [count, setCount] = useState(initialCount);
 
   const addProductHandler =()=>{
@@ -17,7 +19,15 @@ const ItemCount = ({initialCount=1,stock=10 , addCartHandler}) => {
    };
 
    const addCart=()=>{
+    
+    
+    
+    
     addCartHandler(count);
+
+
+
+
   };
 
   return (<>
