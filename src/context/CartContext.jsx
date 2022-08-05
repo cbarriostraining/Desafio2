@@ -9,10 +9,13 @@ const CartContextProvider=({children})=>{
 // estados y funciones globales
 const [cartList, setCartList] = useState([]);
 const [totalPurchase, setTotalPurchase] = useState(0);
+const [numberProducts, setNumberProducts] = useState(0);
 
 
 useEffect(() => {
-    calculateTotal()
+    calculateNumberProducts();
+    calculateTotal();
+    
    }, [cartList]);
 
 const calculateTotal=()=>{
@@ -22,6 +25,15 @@ const calculateTotal=()=>{
              
             });
             setTotalPurchase(total);
+}
+
+const calculateNumberProducts=()=>{
+    let quantity=0;
+    cartList.forEach(item=>{
+                quantity+=item.quantity
+             
+            });
+            setNumberProducts(quantity);
 }
 
 
@@ -39,7 +51,8 @@ if (isInCart(prod)){
     let index=cartList.findIndex(item=> item.id==prod.id);
     cartList[index].quantity+=prod.quantity
     setCartList(cartList);
-        
+    calculateNumberProducts();
+    calculateTotal();
     }else{
     setCartList([
             ...cartList,
@@ -68,7 +81,9 @@ cartList,
 addToCart,
 cleanCart,
 totalPurchase,
-removeItemFromCart
+removeItemFromCart,
+numberProducts,
+setCartList
 
 }}>
 {children}

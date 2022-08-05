@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect ,useState} from 'react';
+import {useState} from 'react';
 import ItemCount from '../ItemCount/ItemCount';
 import {Link} from  'react-router-dom';
 import { CONSTANTS } from "../../common/constants";
@@ -78,14 +78,10 @@ const ItemDetail = ({productDetail }) => {
   const addCartHandler=(productQuantity)=>{
     console.log(`La cantidad es : ${productQuantity}`);
     setQuantity(productQuantity);
-   //  addToCart({product:productDetail,quantity:productQuantity})
-
    addToCart({...productDetail,quantity:productQuantity})
-    
-
   };
 
-// console.log(cartList);
+
 
 
   return(

@@ -1,5 +1,6 @@
-import React,{useEffect}  from 'react';
+import React,{useEffect,memo}  from 'react';
 import { useCartContext} from '../../context/CartContext';
+import {Link} from  'react-router-dom';
 const imageformat= {
   height: 75,
   width: 80
@@ -9,6 +10,10 @@ const imageformat= {
 const NoItemsInCart=()=>{
 return(<>
   <h4>No hay productos en el carrito de compras</h4>
+
+  <Link to={`/`} className="waves-effect waves-light btn pink">
+    Volver a la pagina principal de compras.
+    </Link>
   </>)
 
 }
@@ -116,7 +121,7 @@ const OrderList=()=>{
   }
   
 
-const Cart = () => {
+const Cart= () => {
   const {cartList}=useCartContext();
 
     
@@ -126,9 +131,15 @@ const Cart = () => {
     <h3>Carrito de compras</h3>
       <CartListTable OrderList={OrderList}/>
    </>: <NoItemsInCart/>}
+
+   
     
     </>
   )
 }
+
+
+
+
 
 export default Cart
