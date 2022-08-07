@@ -7,28 +7,19 @@ const style={
 }
 const ItemCount = ({initialCount=1,stock=10 , addCartHandler}) => {
 
- 
-  const [count, setCount] = useState(initialCount);
+const [count, setCount] = useState(initialCount);
 
-  const addProductHandler =()=>{
+const addProductHandler =()=>{
     if(count<stock)setCount(count+1);
-   };
+};
 
-  const removeProductHandler =()=>{
+const removeProductHandler =()=>{
     if(count>initialCount)setCount(count-1);
-   };
+};
 
-   const addCart=()=>{
-    
-    
-    
-    
-    addCartHandler(count);
-
-
-
-
-  };
+const addCart=()=>{
+  addCartHandler(count);
+};
 
   return (<>
   <div style={style}>

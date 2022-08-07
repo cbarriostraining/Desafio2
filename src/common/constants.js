@@ -216,7 +216,7 @@ PRODUCTS:[
      title:'JSBelle Bolsa de maquillaje de viaje, Pequeño organizador de estuches cosméticos para mujer (Negro)',
      brand:'JSBelle',
      form:'Nailon',
-     about:['el material exterior es de tela de nylon negro de buena calidad.',
+     about:['El material exterior es de tela de nylon negro de buena calidad.',
             'El compartimento principal puede almacenar cosméticos.', 
             'Multifuncional.'
             ]        

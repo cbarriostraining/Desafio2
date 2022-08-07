@@ -6,8 +6,6 @@ import { CONSTANTS } from "../../common/constants";
 import { useCartContext } from '../../context/CartContext';
 const {FIRST_ELEMENT, SECOND_ELEMENT,THIRD_ELEMENT,imageformat} = CONSTANTS;
 
-
-
 const FinishMyPurchase=()=>{
 return(<>
 <Link to={`/cart`} className="waves-effect waves-light btn pink">
@@ -17,7 +15,6 @@ return(<>
 }
 
 const ProductDetail =({productDetail})=>{
-
 return(<>
 <div className="container">
                 <br/> <br/> <br/>
@@ -69,7 +66,7 @@ return(
 
 const ItemDetail = ({productDetail }) => {
 
-  const {addToCart,cartList}=useCartContext();
+  const {addToCart}=useCartContext();
 
   const [stock,setStock]=useState(10);
   const [initialCount,setInitialCount]=useState(1);

@@ -1,9 +1,8 @@
 import { useState, useEffect } from 'react';
 import {useParams} from  'react-router-dom';
+import {getFirestore,doc, getDoc, collection,getDocs, query, where, limit, orderBy} from 'firebase/firestore';
 import ItemList from '../ItemList/ItemList';
 import Loader from '../Loader/Loader';
-import { CONSTANTS } from "../../common/constants";
-const {products:catalogproducts,PRODUCTS} = CONSTANTS;
 
 const ItemListContainer = ({gretting}) => {
 
@@ -12,35 +11,38 @@ const ItemListContainer = ({gretting}) => {
   const  {categoryId}=useParams();
   
   
-useEffect(() => {
-      if(categoryId){
-        getProducts()
-        .then(productData=>{
-          SetProducts(productData.filter(product=>product.category==categoryId));})
-        .catch(error=>console.log(error))
-        .finally(()=>{  SetLoading(false);});
-      }
-      else{
-        getProducts()
-        .then(productData=>{
-          console.log("Duda por que esto lo hace 2 Veces , si en la dependencia se indica que solo lo haga en el montaje?");
-          console.log(productData);
-          SetProducts(productData);})
-        .catch(error=>console.log(error))
-        .finally(()=>{  SetLoading(false);});
-      }
-
-}, [categoryId]);
-
-   const getProducts = () =>{
-    return new Promise((resolve,reject) => {
-      setTimeout(()=>{
-          resolve(PRODUCTS);
-        },1000);
-      });} ;
+  useEffect(() => {
+    getProducts();
+  }, [categoryId]);
 
 
-  return (
+  const getProducts = () =>{
+    const db= getFirestore()
+
+    if(categoryId){
+    const queryCollection = collection(db,'products');
+    const filteredQuery =query(queryCollection,
+      where('category','==',categoryId)
+    )
+    getDocs(filteredQuery)
+    .then(resp=>{
+    SetProducts(resp.docs.map((prod)=> ({id:prod.id,...prod.data()})))
+    })
+    .catch(err => console.log(err) )
+    .finally(()=> SetLoading(false))
+    }
+    else{
+      const queryCollection = collection(db,'products');
+      getDocs(queryCollection)
+      .then(resp=>{
+      SetProducts(resp.docs.map((prod)=> ({id:prod.id,...prod.data()})))
+      })
+      .catch(err => console.log(err) )
+      .finally(()=> SetLoading(false))
+    }
+
+};
+ return (
     <>
     <h3>{gretting}</h3>
         {loading? <Loader/>:<ItemList products= {products}/>}

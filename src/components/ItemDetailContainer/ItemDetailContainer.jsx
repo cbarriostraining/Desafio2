@@ -2,37 +2,32 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import {useParams} from  'react-router-dom';
 import ItemDetail from '../ItemDetail/ItemDetail';
-
+import {getFirestore,doc, getDoc, collection,getDocs, query, where, limit, orderBy} from 'firebase/firestore';
 import Loader from '../Loader/Loader';
-import { CONSTANTS } from "../../common/constants";
-const {PRODUCTS} = CONSTANTS;
 
 const ItemDetailContainer = () => {
 
   const [item,SetItem]=useState({});
   const [loading,SetLoading] = useState(true);
   const  {id:productId}=useParams();
-    useEffect(() => {
-      getItem(productId)
-       .then(itemData=>{
-        SetItem(itemData);})
-       .catch(error=>console.log(error))
-       .finally(()=>{  SetLoading(false);});
-     }, [productId]);
+
+  useEffect(() => {
+      getItem(productId);
+  }, [productId]);
   
-  
-     const getItem = (id) =>{
-      return new Promise((resolve,reject) => {
-        setTimeout(()=>{
-          PRODUCTS.find((product) =>{ 
-            if(product.id===id) {
-            resolve (product);
-            }
-          }
-            );
-          },1000);
-        });} ;
-  
+  const getItem = (id) =>{
+          const db= getFirestore()
+          const queryProduct = doc(db,'products',id)
+          getDoc(queryProduct)
+          .then(resp=>{
+            SetItem({id:resp.id,...resp.data()});
+          })
+          .catch(error=>console.log(error))
+          .finally(()=>{  SetLoading(false);});
+   
+   
+ };
+
  return (
     <>
     {loading? <Loader/>:
