@@ -10,6 +10,7 @@ const CartContextProvider=({children})=>{
 const [cartList, setCartList] = useState([]);
 const [totalPurchase, setTotalPurchase] = useState(0);
 const [numberProducts, setNumberProducts] = useState(0);
+const [orderId, setOrderId] = useState("");
 
 
 useEffect(() => {
@@ -83,7 +84,9 @@ cleanCart,
 totalPurchase,
 removeItemFromCart,
 numberProducts,
-setCartList
+setCartList,
+orderId,
+setOrderId
 
 }}>
 {children}

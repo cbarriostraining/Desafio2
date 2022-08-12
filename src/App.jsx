@@ -1,14 +1,11 @@
 import {BrowserRouter,Routes,Route,Navigate} from 'react-router-dom';
-import { useState } from 'react';
 import NavBar  from './components/NavBar/NavBar';
 import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-
 import Cart from './components/Cart/Cart';
 import Beauty from './components/Beauty/Beauty';
 import News from './components/News/News';
 import SeasonalSpecials from './components/SeasonalSpecials/SeasonalSpecials';
-import Cases from './components/Cases/Cases';
 import CartContextProvider from './context/CartContext';
 
 function App() {
