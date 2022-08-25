@@ -12,6 +12,13 @@ return(<>
     </Link>
 </>)
 }
+const StayShopped=()=>{
+  return(<>
+  <Link to={`/`} className="waves-effect waves-light btn pink">
+      Seguir Comprando
+      </Link>
+  </>)
+  }
 
 const ProductDetail =({productDetail})=>{
 return(<>
@@ -72,7 +79,6 @@ const ItemDetail = ({productDetail }) => {
   const [quantity,setQuantity]=useState(0);
 
   const addCartHandler=(productQuantity)=>{
-    console.log(`La cantidad es : ${productQuantity}`);
     setQuantity(productQuantity);
    addToCart({...productDetail,quantity:productQuantity})
   };
@@ -85,7 +91,8 @@ const ItemDetail = ({productDetail }) => {
       {productDetail.title ? 
       <>
         <ProductDetail productDetail={productDetail}/>
-        {quantity ?<FinishMyPurchase/>: <ItemCount initialCount={initialCount} stock={stock}  addCartHandler={addCartHandler} />   }
+        {quantity ?<><StayShopped/><FinishMyPurchase/>
+                      </>: <ItemCount initialCount={initialCount} stock={stock}  addCartHandler={addCartHandler} />   }
       </>
        :
        <NotFound/> }

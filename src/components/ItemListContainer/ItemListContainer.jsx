@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import {useParams} from  'react-router-dom';
-import {getFirestore,doc, getDoc, collection,getDocs, query, where, limit, orderBy} from 'firebase/firestore';
+import {getFirestore, collection,getDocs, query, where} from 'firebase/firestore';
 import ItemList from '../ItemList/ItemList';
 import Loader from '../Loader/Loader';
+import { CONSTANTS } from "../../common/constants";
+const  {PRODUCTS_COLLECTION} = CONSTANTS;
 
 const ItemListContainer = ({gretting}) => {
 
@@ -18,29 +20,15 @@ const ItemListContainer = ({gretting}) => {
 
   const getProducts = () =>{
     const db= getFirestore()
-
-    if(categoryId){
-    const queryCollection = collection(db,'products');
-    const filteredQuery =query(queryCollection,
-      where('category','==',categoryId)
-    )
-    getDocs(filteredQuery)
+    const queryCollection = collection(db,PRODUCTS_COLLECTION);
+    const queryType = categoryId ? query(queryCollection, where('category','==',categoryId)):queryCollection
+    getDocs(queryType)
     .then(resp=>{
     SetProducts(resp.docs.map((prod)=> ({id:prod.id,...prod.data()})))
     })
-    .catch(err => console.log(err) )
+    .catch()
     .finally(()=> SetLoading(false))
-    }
-    else{
-      const queryCollection = collection(db,'products');
-      getDocs(queryCollection)
-      .then(resp=>{
-      SetProducts(resp.docs.map((prod)=> ({id:prod.id,...prod.data()})))
-      })
-      .catch(err => console.log(err) )
-      .finally(()=> SetLoading(false))
-    }
-
+    
 };
  return (
     <>

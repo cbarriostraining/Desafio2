@@ -7,21 +7,17 @@ import Beauty from './components/Beauty/Beauty';
 import News from './components/News/News';
 import SeasonalSpecials from './components/SeasonalSpecials/SeasonalSpecials';
 import CartContextProvider from './context/CartContext';
+import { CONSTANTS } from "./common/constants";
+const  {WELCOME_MESSAGE} = CONSTANTS;
 
 function App() {
-
-
-
-
-
   return (
     <>
-    
-        <BrowserRouter>
+         <BrowserRouter>
           <CartContextProvider>
                 <NavBar/>
                 <Routes>
-                    <Route  path='/' element={<ItemListContainer  gretting={"Hola Bienvenido a Perfumes Rosalía"} />}/>
+                    <Route  path='/' element={<ItemListContainer  gretting={WELCOME_MESSAGE} />}/>
                     <Route  path='/category/:categoryId' element={<ItemListContainer/>}/>
                     <Route  path='/item/:id' element={<ItemDetailContainer/>}/>
                     <Route  path='/cart' element={<Cart/>}/>
@@ -32,8 +28,6 @@ function App() {
                 </Routes>
           </CartContextProvider>
         </BrowserRouter>
- 
-
     </>
   )
 }

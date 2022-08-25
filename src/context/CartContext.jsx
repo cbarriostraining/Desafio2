@@ -1,16 +1,18 @@
 import React, { createContext,useState ,useContext,useEffect} from 'react';
+import {getFirestore, collection, addDoc} from 'firebase/firestore';
+import { CONSTANTS } from "../common/constants";
+const  {ORDERS_COLLECTION} = CONSTANTS;
 const CartContext=createContext([]);
 export const useCartContext =()=>useContext(CartContext);
-
-// coponente -> estados para producir renders y que se actualize
-
 const CartContextProvider=({children})=>{
-
-// estados y funciones globales
 const [cartList, setCartList] = useState([]);
 const [totalPurchase, setTotalPurchase] = useState(0);
 const [numberProducts, setNumberProducts] = useState(0);
 const [orderId, setOrderId] = useState("");
+const [proceedToBuy, setProceedToBuy]= useState(false);
+const [concludePurchase, setConcludePurchase] = useState(true);
+const [totalValidatedFields,setTotalValidatedFields] = useState(0);
+const [buyerData,setBuyerData] = useState({});
 
 
 useEffect(() => {
@@ -48,7 +50,6 @@ const isInCart=(prod)=>{
 const addToCart =(prod)=>{
 
 if (isInCart(prod)){
-    console.log("ya existe en el carrito.");
     let index=cartList.findIndex(item=> item.id==prod.id);
     cartList[index].quantity+=prod.quantity
     setCartList(cartList);
@@ -71,8 +72,43 @@ const removeItemFromCart =(index)=>{
 
 };
 
+
+
+const saveOrder  =async ()=>{
+    const {email,fullName,phone}=buyerData;
+    const today = new Date();
+    
+    const orderData={
+      buyer:{
+        email,
+        name:fullName,
+        phone
+      },
+      items:cartList.map(product=>{
+            return{
+            product:product.name,
+            id:product.id,
+            price:product.price
+             }
+            }),
+      total:totalPurchase,
+      purchaseDate:today.toLocaleString()
+    }
+    const db=getFirestore();
+    const  queryOrders=collection(db, ORDERS_COLLECTION);
+    addDoc(queryOrders,orderData)
+    .then(resp=>{ 
+      cleanCart();
+      setOrderId(resp.id);
+      setProceedToBuy(false);
+    });
+
+    
+    }
+
 const cleanCart =()=>{
 setCartList([]);
+setConcludePurchase(false);
 
 }
 
@@ -86,8 +122,16 @@ removeItemFromCart,
 numberProducts,
 setCartList,
 orderId,
-setOrderId
-
+setOrderId,
+saveOrder,
+proceedToBuy, 
+setProceedToBuy,
+concludePurchase, 
+setConcludePurchase,
+totalValidatedFields,
+setTotalValidatedFields,
+buyerData,
+setBuyerData
 }}>
 {children}
 </CartContext.Provider>

@@ -1,7 +1,8 @@
 import React from 'react';
 import {Link} from  'react-router-dom';
 import { useCartContext } from '../../../context/CartContext';
-const THERE_ARE_NO_PRODUCTS="";
+import { CONSTANTS } from "../../../common/constants";
+const  {THERE_ARE_NO_PRODUCTS} = CONSTANTS;
 
 const CartWidget = () => {
 
