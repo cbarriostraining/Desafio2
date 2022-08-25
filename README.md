@@ -63,5 +63,4 @@ Firebase (https://firebase.google.com/)Manejador de base de datos.<br>
 **Christian Barrios**
 <br>Desarrollador Frontend
 
-**Enlace del demo :** http://perfumes-rosalia.s3-website-us-east-1.amazonaws.com
-
+**Enlace del demo :** https://perfumes22.d1xjzjh4r9xm76.amplifyapp.com/
